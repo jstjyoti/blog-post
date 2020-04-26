@@ -7,11 +7,12 @@
     margin: 10px;
     box-sizing: border-box;
     cursor: pointer;
+    background-color: #0717f3;
 }
 
 .Post:hover,
 .Post:active {
-    background-color: #C0DDF5;
+    background-color: rgb(78, 168, 241);
 }
 
 .Author {

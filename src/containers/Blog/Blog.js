@@ -33,7 +33,7 @@ class Blog extends Component {
             return <Post key={el.id} title={el.title} author={el.author} click={() => this.postSelectorHandler(el.id)}></Post>
         })
         return (
-            <div>
+            <div className='Blog'>
                 <section className="Posts">
                     {post}
                 </section>
