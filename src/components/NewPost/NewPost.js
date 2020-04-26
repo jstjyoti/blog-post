@@ -21,6 +21,7 @@ class NewPost extends Component {
                 <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
                     <option value="Max">Max</option>
                     <option value="Manu">Manu</option>
+                    <option value="Jyoti">Jyoti</option>
                 </select>
                 <button>Add Post</button>
             </div>
