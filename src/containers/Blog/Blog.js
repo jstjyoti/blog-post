@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import NewPost from '../Blog/NewPost/NewPost';
 import Posts from '../Blog/Posts/Posts';
 import './Blog.css';
-import {Route, Link} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 
 class Blog extends Component {
     
@@ -17,10 +17,13 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to={{pathname: '/new-post',
+                            <li><NavLink exact to="/" activeClassName="my-active" activeStyle={{
+                                color: '#fa2d25',
+                                textDecoration: 'underline'
+                            }}>Home</NavLink></li>
+                            <li><NavLink to={{pathname: '/new-post',
                                         hash: "#submit",
-                                        search:"?quick-submit=true"}}>New Post</Link></li>
+                                        search:"?quick-submit=true"}}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
