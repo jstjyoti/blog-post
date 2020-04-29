@@ -13,7 +13,7 @@ class Blog extends Component {
         error: false
     };
     componentDidMount() {
-        Axios.get('/posts')
+        Axios.get('https://jsonplaceholder.typicode.com/posts')
         .then( response =>{
             const posts = response.data.slice(0,4);
             const updatedPosts = posts.map(post =>{
@@ -42,6 +42,14 @@ class Blog extends Component {
 
         return (
             <div className='Blog'>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href='/new-post'>New Post</a></li>
+                        </ul>
+                    </nav>
+                </header>
                 <section className="Posts">
                     {post}
                 </section>
