@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import NewPost from '../Blog/NewPost/NewPost';
 import Posts from '../Blog/Posts/Posts';
+import FullPost from '../Blog/FullPost/FullPost';
 import './Blog.css';
 import {Route, NavLink} from 'react-router-dom';
 
@@ -30,6 +31,7 @@ class Blog extends Component {
                 {/* exact adds complete path checking otherwise just checks starts with*/}
                 <Route path="/" exact component={Posts}/>
                 <Route path="/new-post" component={NewPost}/>
+                <Route path="/:id" exact component={FullPost}/>
                 {/* <section>
                     <FullPost id={this.state.selectedPostId}/>
                 </section>
