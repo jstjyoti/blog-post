@@ -1,14 +1,7 @@
 .Blog{
     background-image: radial-gradient(#838bf8, #d393ec, #f58bc9, #e379ec,#838bf8, #d27ef3);
     text-align: center;
-}
-.Posts {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
-    
+    height: 100vh;
 }
 
 .Blog ul{

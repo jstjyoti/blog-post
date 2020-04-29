@@ -1,64 +1,38 @@
 import React, { Component } from 'react';
 
-import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+import NewPost from '../Blog/NewPost/NewPost';
+import Posts from '../Blog/Posts/Posts';
 import './Blog.css';
-// import Axios from 'axios';
-import Axios from '../../Axios';
-class Blog extends Component {
-    state = {
-        posts: [],
-        selectedPostId: null,
-        error: false
-    };
-    componentDidMount() {
-        Axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then( response =>{
-            const posts = response.data.slice(0,4);
-            const updatedPosts = posts.map(post =>{
-                return {
-                    ...post,
-                    author: 'Jyoti'
-                }
-            })
-            this.setState({posts: updatedPosts})
-        })
-        .catch(err => {
-            this.setState({error: true})
-        });
-    }
-    postSelectorHandler = (id) =>{
-        this.setState({selectedPostId: id});
-    }
-    render () {
-        let post = <p style={{textAlign:'center'}}>Something Went Wrong</p>;
+import {Route, Link} from 'react-router-dom';
 
-        if(!this.state.error){
-            post = this.state.posts.map(el => {
-                return <Post key={el.id} title={el.title} author={el.author} click={() => this.postSelectorHandler(el.id)}></Post>
-            });
-        }
+class Blog extends Component {
+    
+    render () {
 
         return (
+            //properties of Link Component of react-router-dom
+            // hash: "#submit",
+            // search:"?quick-submit=true"
             <div className='Blog'>
                 <header>
                     <nav>
                         <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href='/new-post'>New Post</a></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to={{pathname: '/new-post',
+                                        hash: "#submit",
+                                        search:"?quick-submit=true"}}>New Post</Link></li>
                         </ul>
                     </nav>
                 </header>
-                <section className="Posts">
-                    {post}
-                </section>
-                <section>
+                {/* exact adds complete path checking otherwise just checks starts with*/}
+                <Route path="/" exact component={Posts}/>
+                <Route path="/new-post" component={NewPost}/>
+                {/* <section>
                     <FullPost id={this.state.selectedPostId}/>
                 </section>
                 <section>
                     <NewPost />
-                </section>
+                </section> */}
             </div>
         );
     }
