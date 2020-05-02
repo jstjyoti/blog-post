@@ -18,6 +18,7 @@ class NewPost extends Component {
         }
         Axios.post('/posts', post)
             .then(response => {
+                this.props.history.push('/');
                 console.log(response);
             });
     }
